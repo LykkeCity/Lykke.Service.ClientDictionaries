@@ -1,0 +1,428 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Lykke.Service.ClientDictionaries.Client</name>
+    </assembly>
+    <members>
+        <member name="P:Lykke.Service.ClientDictionaries.AutorestClient.ClientDictionariesAPI.BaseUri">
+            <summary>
+            The base URI of the service.
+            </summary>
+        </member>
+        <member name="P:Lykke.Service.ClientDictionaries.AutorestClient.ClientDictionariesAPI.SerializationSettings">
+            <summary>
+            Gets or sets json serialization settings.
+            </summary>
+        </member>
+        <member name="P:Lykke.Service.ClientDictionaries.AutorestClient.ClientDictionariesAPI.DeserializationSettings">
+            <summary>
+            Gets or sets json deserialization settings.
+            </summary>
+        </member>
+        <member name="M:Lykke.Service.ClientDictionaries.AutorestClient.ClientDictionariesAPI.#ctor(System.Net.Http.DelegatingHandler[])">
+            <summary>
+            Initializes a new instance of the ClientDictionariesAPI class.
+            </summary>
+            <param name='handlers'>
+            Optional. The delegating handlers to add to the http client pipeline.
+            </param>
+        </member>
+        <member name="M:Lykke.Service.ClientDictionaries.AutorestClient.ClientDictionariesAPI.#ctor(System.Net.Http.HttpClientHandler,System.Net.Http.DelegatingHandler[])">
+            <summary>
+            Initializes a new instance of the ClientDictionariesAPI class.
+            </summary>
+            <param name='rootHandler'>
+            Optional. The http client handler used to handle http transport.
+            </param>
+            <param name='handlers'>
+            Optional. The delegating handlers to add to the http client pipeline.
+            </param>
+        </member>
+        <member name="M:Lykke.Service.ClientDictionaries.AutorestClient.ClientDictionariesAPI.#ctor(System.Uri,System.Net.Http.DelegatingHandler[])">
+            <summary>
+            Initializes a new instance of the ClientDictionariesAPI class.
+            </summary>
+            <param name='baseUri'>
+            Optional. The base URI of the service.
+            </param>
+            <param name='handlers'>
+            Optional. The delegating handlers to add to the http client pipeline.
+            </param>
+            <exception cref="T:System.ArgumentNullException">
+            Thrown when a required parameter is null
+            </exception>
+        </member>
+        <member name="M:Lykke.Service.ClientDictionaries.AutorestClient.ClientDictionariesAPI.#ctor(System.Uri,System.Net.Http.HttpClientHandler,System.Net.Http.DelegatingHandler[])">
+            <summary>
+            Initializes a new instance of the ClientDictionariesAPI class.
+            </summary>
+            <param name='baseUri'>
+            Optional. The base URI of the service.
+            </param>
+            <param name='rootHandler'>
+            Optional. The http client handler used to handle http transport.
+            </param>
+            <param name='handlers'>
+            Optional. The delegating handlers to add to the http client pipeline.
+            </param>
+            <exception cref="T:System.ArgumentNullException">
+            Thrown when a required parameter is null
+            </exception>
+        </member>
+        <member name="M:Lykke.Service.ClientDictionaries.AutorestClient.ClientDictionariesAPI.Initialize">
+            <summary>
+            Initializes client properties.
+            </summary>
+        </member>
+        <member name="M:Lykke.Service.ClientDictionaries.AutorestClient.ClientDictionariesAPI.ApiDictionaryByClientIdByKeyGetWithHttpMessagesAsync(System.String,System.String,System.Collections.Generic.Dictionary{System.String,System.Collections.Generic.List{System.String}},System.Threading.CancellationToken)">
+            <param name='clientId'>
+            </param>
+            <param name='key'>
+            </param>
+            <param name='customHeaders'>
+            Headers that will be added to request.
+            </param>
+            <param name='cancellationToken'>
+            The cancellation token.
+            </param>
+            <exception cref="T:Microsoft.Rest.HttpOperationException">
+            Thrown when the operation returned an invalid status code
+            </exception>
+            <exception cref="T:Microsoft.Rest.SerializationException">
+            Thrown when unable to deserialize the response
+            </exception>
+            <exception cref="T:Microsoft.Rest.ValidationException">
+            Thrown when a required parameter is null
+            </exception>
+            <exception cref="T:System.ArgumentNullException">
+            Thrown when a required parameter is null
+            </exception>
+            <return>
+            A response object containing the response body and response headers.
+            </return>
+        </member>
+        <member name="M:Lykke.Service.ClientDictionaries.AutorestClient.ClientDictionariesAPI.ApiDictionaryByClientIdByKeyPostWithHttpMessagesAsync(System.String,System.String,Lykke.Service.ClientDictionaries.AutorestClient.Models.RecordPayloadModel,System.Collections.Generic.Dictionary{System.String,System.Collections.Generic.List{System.String}},System.Threading.CancellationToken)">
+            <param name='clientId'>
+            </param>
+            <param name='key'>
+            </param>
+            <param name='payload'>
+            </param>
+            <param name='customHeaders'>
+            Headers that will be added to request.
+            </param>
+            <param name='cancellationToken'>
+            The cancellation token.
+            </param>
+            <exception cref="T:Microsoft.Rest.HttpOperationException">
+            Thrown when the operation returned an invalid status code
+            </exception>
+            <exception cref="T:Microsoft.Rest.SerializationException">
+            Thrown when unable to deserialize the response
+            </exception>
+            <exception cref="T:Microsoft.Rest.ValidationException">
+            Thrown when a required parameter is null
+            </exception>
+            <exception cref="T:System.ArgumentNullException">
+            Thrown when a required parameter is null
+            </exception>
+            <return>
+            A response object containing the response body and response headers.
+            </return>
+        </member>
+        <member name="M:Lykke.Service.ClientDictionaries.AutorestClient.ClientDictionariesAPI.ApiDictionaryByClientIdByKeyDeleteWithHttpMessagesAsync(System.String,System.String,System.Collections.Generic.Dictionary{System.String,System.Collections.Generic.List{System.String}},System.Threading.CancellationToken)">
+            <param name='clientId'>
+            </param>
+            <param name='key'>
+            </param>
+            <param name='customHeaders'>
+            Headers that will be added to request.
+            </param>
+            <param name='cancellationToken'>
+            The cancellation token.
+            </param>
+            <exception cref="T:Microsoft.Rest.HttpOperationException">
+            Thrown when the operation returned an invalid status code
+            </exception>
+            <exception cref="T:Microsoft.Rest.SerializationException">
+            Thrown when unable to deserialize the response
+            </exception>
+            <exception cref="T:Microsoft.Rest.ValidationException">
+            Thrown when a required parameter is null
+            </exception>
+            <exception cref="T:System.ArgumentNullException">
+            Thrown when a required parameter is null
+            </exception>
+            <return>
+            A response object containing the response body and response headers.
+            </return>
+        </member>
+        <member name="M:Lykke.Service.ClientDictionaries.AutorestClient.ClientDictionariesAPI.IsAliveWithHttpMessagesAsync(System.Collections.Generic.Dictionary{System.String,System.Collections.Generic.List{System.String}},System.Threading.CancellationToken)">
+            <summary>
+            Checks service is alive
+            </summary>
+            <param name='customHeaders'>
+            Headers that will be added to request.
+            </param>
+            <param name='cancellationToken'>
+            The cancellation token.
+            </param>
+            <exception cref="T:Microsoft.Rest.HttpOperationException">
+            Thrown when the operation returned an invalid status code
+            </exception>
+            <exception cref="T:Microsoft.Rest.SerializationException">
+            Thrown when unable to deserialize the response
+            </exception>
+            <return>
+            A response object containing the response body and response headers.
+            </return>
+        </member>
+        <member name="T:Lykke.Service.ClientDictionaries.AutorestClient.ClientDictionariesAPIExtensions">
+            <summary>
+            Extension methods for ClientDictionariesAPI.
+            </summary>
+        </member>
+        <member name="M:Lykke.Service.ClientDictionaries.AutorestClient.ClientDictionariesAPIExtensions.ApiDictionaryByClientIdByKeyGet(Lykke.Service.ClientDictionaries.AutorestClient.IClientDictionariesAPI,System.String,System.String)">
+            <param name='operations'>
+            The operations group for this extension method.
+            </param>
+            <param name='clientId'>
+            </param>
+            <param name='key'>
+            </param>
+        </member>
+        <member name="M:Lykke.Service.ClientDictionaries.AutorestClient.ClientDictionariesAPIExtensions.ApiDictionaryByClientIdByKeyGetAsync(Lykke.Service.ClientDictionaries.AutorestClient.IClientDictionariesAPI,System.String,System.String,System.Threading.CancellationToken)">
+            <param name='operations'>
+            The operations group for this extension method.
+            </param>
+            <param name='clientId'>
+            </param>
+            <param name='key'>
+            </param>
+            <param name='cancellationToken'>
+            The cancellation token.
+            </param>
+        </member>
+        <member name="M:Lykke.Service.ClientDictionaries.AutorestClient.ClientDictionariesAPIExtensions.ApiDictionaryByClientIdByKeyPost(Lykke.Service.ClientDictionaries.AutorestClient.IClientDictionariesAPI,System.String,System.String,Lykke.Service.ClientDictionaries.AutorestClient.Models.RecordPayloadModel)">
+            <param name='operations'>
+            The operations group for this extension method.
+            </param>
+            <param name='clientId'>
+            </param>
+            <param name='key'>
+            </param>
+            <param name='payload'>
+            </param>
+        </member>
+        <member name="M:Lykke.Service.ClientDictionaries.AutorestClient.ClientDictionariesAPIExtensions.ApiDictionaryByClientIdByKeyPostAsync(Lykke.Service.ClientDictionaries.AutorestClient.IClientDictionariesAPI,System.String,System.String,Lykke.Service.ClientDictionaries.AutorestClient.Models.RecordPayloadModel,System.Threading.CancellationToken)">
+            <param name='operations'>
+            The operations group for this extension method.
+            </param>
+            <param name='clientId'>
+            </param>
+            <param name='key'>
+            </param>
+            <param name='payload'>
+            </param>
+            <param name='cancellationToken'>
+            The cancellation token.
+            </param>
+        </member>
+        <member name="M:Lykke.Service.ClientDictionaries.AutorestClient.ClientDictionariesAPIExtensions.ApiDictionaryByClientIdByKeyDelete(Lykke.Service.ClientDictionaries.AutorestClient.IClientDictionariesAPI,System.String,System.String)">
+            <param name='operations'>
+            The operations group for this extension method.
+            </param>
+            <param name='clientId'>
+            </param>
+            <param name='key'>
+            </param>
+        </member>
+        <member name="M:Lykke.Service.ClientDictionaries.AutorestClient.ClientDictionariesAPIExtensions.ApiDictionaryByClientIdByKeyDeleteAsync(Lykke.Service.ClientDictionaries.AutorestClient.IClientDictionariesAPI,System.String,System.String,System.Threading.CancellationToken)">
+            <param name='operations'>
+            The operations group for this extension method.
+            </param>
+            <param name='clientId'>
+            </param>
+            <param name='key'>
+            </param>
+            <param name='cancellationToken'>
+            The cancellation token.
+            </param>
+        </member>
+        <member name="M:Lykke.Service.ClientDictionaries.AutorestClient.ClientDictionariesAPIExtensions.IsAlive(Lykke.Service.ClientDictionaries.AutorestClient.IClientDictionariesAPI)">
+            <summary>
+            Checks service is alive
+            </summary>
+            <param name='operations'>
+            The operations group for this extension method.
+            </param>
+        </member>
+        <member name="M:Lykke.Service.ClientDictionaries.AutorestClient.ClientDictionariesAPIExtensions.IsAliveAsync(Lykke.Service.ClientDictionaries.AutorestClient.IClientDictionariesAPI,System.Threading.CancellationToken)">
+            <summary>
+            Checks service is alive
+            </summary>
+            <param name='operations'>
+            The operations group for this extension method.
+            </param>
+            <param name='cancellationToken'>
+            The cancellation token.
+            </param>
+        </member>
+        <member name="T:Lykke.Service.ClientDictionaries.AutorestClient.IClientDictionariesAPI">
+            <summary>
+            </summary>
+        </member>
+        <member name="P:Lykke.Service.ClientDictionaries.AutorestClient.IClientDictionariesAPI.BaseUri">
+            <summary>
+            The base URI of the service.
+            </summary>
+        </member>
+        <member name="P:Lykke.Service.ClientDictionaries.AutorestClient.IClientDictionariesAPI.SerializationSettings">
+            <summary>
+            Gets or sets json serialization settings.
+            </summary>
+        </member>
+        <member name="P:Lykke.Service.ClientDictionaries.AutorestClient.IClientDictionariesAPI.DeserializationSettings">
+            <summary>
+            Gets or sets json deserialization settings.
+            </summary>
+        </member>
+        <member name="M:Lykke.Service.ClientDictionaries.AutorestClient.IClientDictionariesAPI.ApiDictionaryByClientIdByKeyGetWithHttpMessagesAsync(System.String,System.String,System.Collections.Generic.Dictionary{System.String,System.Collections.Generic.List{System.String}},System.Threading.CancellationToken)">
+            <param name='clientId'>
+            </param>
+            <param name='key'>
+            </param>
+            <param name='customHeaders'>
+            The headers that will be added to request.
+            </param>
+            <param name='cancellationToken'>
+            The cancellation token.
+            </param>
+        </member>
+        <member name="M:Lykke.Service.ClientDictionaries.AutorestClient.IClientDictionariesAPI.ApiDictionaryByClientIdByKeyPostWithHttpMessagesAsync(System.String,System.String,Lykke.Service.ClientDictionaries.AutorestClient.Models.RecordPayloadModel,System.Collections.Generic.Dictionary{System.String,System.Collections.Generic.List{System.String}},System.Threading.CancellationToken)">
+            <param name='clientId'>
+            </param>
+            <param name='key'>
+            </param>
+            <param name='payload'>
+            </param>
+            <param name='customHeaders'>
+            The headers that will be added to request.
+            </param>
+            <param name='cancellationToken'>
+            The cancellation token.
+            </param>
+        </member>
+        <member name="M:Lykke.Service.ClientDictionaries.AutorestClient.IClientDictionariesAPI.ApiDictionaryByClientIdByKeyDeleteWithHttpMessagesAsync(System.String,System.String,System.Collections.Generic.Dictionary{System.String,System.Collections.Generic.List{System.String}},System.Threading.CancellationToken)">
+            <param name='clientId'>
+            </param>
+            <param name='key'>
+            </param>
+            <param name='customHeaders'>
+            The headers that will be added to request.
+            </param>
+            <param name='cancellationToken'>
+            The cancellation token.
+            </param>
+        </member>
+        <member name="M:Lykke.Service.ClientDictionaries.AutorestClient.IClientDictionariesAPI.IsAliveWithHttpMessagesAsync(System.Collections.Generic.Dictionary{System.String,System.Collections.Generic.List{System.String}},System.Threading.CancellationToken)">
+            <summary>
+            Checks service is alive
+            </summary>
+            <param name='customHeaders'>
+            The headers that will be added to request.
+            </param>
+            <param name='cancellationToken'>
+            The cancellation token.
+            </param>
+        </member>
+        <member name="M:Lykke.Service.ClientDictionaries.AutorestClient.Models.ErrorResponse.#ctor">
+            <summary>
+            Initializes a new instance of the ErrorResponse class.
+            </summary>
+        </member>
+        <member name="M:Lykke.Service.ClientDictionaries.AutorestClient.Models.ErrorResponse.#ctor(System.String,System.Collections.Generic.IDictionary{System.String,System.Collections.Generic.IList{System.String}})">
+            <summary>
+            Initializes a new instance of the ErrorResponse class.
+            </summary>
+        </member>
+        <member name="P:Lykke.Service.ClientDictionaries.AutorestClient.Models.ErrorResponse.ErrorMessage">
+            <summary>
+            </summary>
+        </member>
+        <member name="P:Lykke.Service.ClientDictionaries.AutorestClient.Models.ErrorResponse.ModelErrors">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:Lykke.Service.ClientDictionaries.AutorestClient.Models.IsAliveResponse.#ctor">
+            <summary>
+            Initializes a new instance of the IsAliveResponse class.
+            </summary>
+        </member>
+        <member name="M:Lykke.Service.ClientDictionaries.AutorestClient.Models.IsAliveResponse.#ctor(System.Boolean,System.String,System.String,System.String,System.Collections.Generic.IList{Lykke.Service.ClientDictionaries.AutorestClient.Models.IssueIndicator})">
+            <summary>
+            Initializes a new instance of the IsAliveResponse class.
+            </summary>
+        </member>
+        <member name="P:Lykke.Service.ClientDictionaries.AutorestClient.Models.IsAliveResponse.Name">
+            <summary>
+            </summary>
+        </member>
+        <member name="P:Lykke.Service.ClientDictionaries.AutorestClient.Models.IsAliveResponse.Version">
+            <summary>
+            </summary>
+        </member>
+        <member name="P:Lykke.Service.ClientDictionaries.AutorestClient.Models.IsAliveResponse.Env">
+            <summary>
+            </summary>
+        </member>
+        <member name="P:Lykke.Service.ClientDictionaries.AutorestClient.Models.IsAliveResponse.IsDebug">
+            <summary>
+            </summary>
+        </member>
+        <member name="P:Lykke.Service.ClientDictionaries.AutorestClient.Models.IsAliveResponse.IssueIndicators">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:Lykke.Service.ClientDictionaries.AutorestClient.Models.IsAliveResponse.Validate">
+            <summary>
+            Validate the object.
+            </summary>
+            <exception cref="T:Microsoft.Rest.ValidationException">
+            Thrown if validation fails
+            </exception>
+        </member>
+        <member name="M:Lykke.Service.ClientDictionaries.AutorestClient.Models.IssueIndicator.#ctor">
+            <summary>
+            Initializes a new instance of the IssueIndicator class.
+            </summary>
+        </member>
+        <member name="M:Lykke.Service.ClientDictionaries.AutorestClient.Models.IssueIndicator.#ctor(System.String,System.String)">
+            <summary>
+            Initializes a new instance of the IssueIndicator class.
+            </summary>
+        </member>
+        <member name="P:Lykke.Service.ClientDictionaries.AutorestClient.Models.IssueIndicator.Type">
+            <summary>
+            </summary>
+        </member>
+        <member name="P:Lykke.Service.ClientDictionaries.AutorestClient.Models.IssueIndicator.Value">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:Lykke.Service.ClientDictionaries.AutorestClient.Models.RecordPayloadModel.#ctor">
+            <summary>
+            Initializes a new instance of the RecordPayloadModel class.
+            </summary>
+        </member>
+        <member name="M:Lykke.Service.ClientDictionaries.AutorestClient.Models.RecordPayloadModel.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the RecordPayloadModel class.
+            </summary>
+        </member>
+        <member name="P:Lykke.Service.ClientDictionaries.AutorestClient.Models.RecordPayloadModel.Payload">
+            <summary>
+            </summary>
+        </member>
+    </members>
+</doc>
