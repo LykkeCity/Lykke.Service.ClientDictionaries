@@ -1,1 +1,1 @@
-# Lykke.Service.ClientDictionaris-
+# Lykke.Service.ClientDictionaries
