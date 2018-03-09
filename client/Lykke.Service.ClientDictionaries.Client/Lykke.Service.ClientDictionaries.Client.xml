@@ -101,12 +101,12 @@
             A response object containing the response body and response headers.
             </return>
         </member>
-        <member name="M:Lykke.Service.ClientDictionaries.AutorestClient.ClientDictionariesAPI.ApiDictionaryByClientIdByKeyPostWithHttpMessagesAsync(System.String,System.String,Lykke.Service.ClientDictionaries.AutorestClient.Models.RecordPayloadModel,System.Collections.Generic.Dictionary{System.String,System.Collections.Generic.List{System.String}},System.Threading.CancellationToken)">
+        <member name="M:Lykke.Service.ClientDictionaries.AutorestClient.ClientDictionariesAPI.ApiDictionaryByClientIdByKeyPostWithHttpMessagesAsync(System.String,System.String,Lykke.Service.ClientDictionaries.AutorestClient.Models.SetRequestModel,System.Collections.Generic.Dictionary{System.String,System.Collections.Generic.List{System.String}},System.Threading.CancellationToken)">
             <param name='clientId'>
             </param>
             <param name='key'>
             </param>
-            <param name='payload'>
+            <param name='model'>
             </param>
             <param name='customHeaders'>
             Headers that will be added to request.
@@ -203,7 +203,7 @@
             The cancellation token.
             </param>
         </member>
-        <member name="M:Lykke.Service.ClientDictionaries.AutorestClient.ClientDictionariesAPIExtensions.ApiDictionaryByClientIdByKeyPost(Lykke.Service.ClientDictionaries.AutorestClient.IClientDictionariesAPI,System.String,System.String,Lykke.Service.ClientDictionaries.AutorestClient.Models.RecordPayloadModel)">
+        <member name="M:Lykke.Service.ClientDictionaries.AutorestClient.ClientDictionariesAPIExtensions.ApiDictionaryByClientIdByKeyPost(Lykke.Service.ClientDictionaries.AutorestClient.IClientDictionariesAPI,System.String,System.String,Lykke.Service.ClientDictionaries.AutorestClient.Models.SetRequestModel)">
             <param name='operations'>
             The operations group for this extension method.
             </param>
@@ -211,10 +211,10 @@
             </param>
             <param name='key'>
             </param>
-            <param name='payload'>
+            <param name='model'>
             </param>
         </member>
-        <member name="M:Lykke.Service.ClientDictionaries.AutorestClient.ClientDictionariesAPIExtensions.ApiDictionaryByClientIdByKeyPostAsync(Lykke.Service.ClientDictionaries.AutorestClient.IClientDictionariesAPI,System.String,System.String,Lykke.Service.ClientDictionaries.AutorestClient.Models.RecordPayloadModel,System.Threading.CancellationToken)">
+        <member name="M:Lykke.Service.ClientDictionaries.AutorestClient.ClientDictionariesAPIExtensions.ApiDictionaryByClientIdByKeyPostAsync(Lykke.Service.ClientDictionaries.AutorestClient.IClientDictionariesAPI,System.String,System.String,Lykke.Service.ClientDictionaries.AutorestClient.Models.SetRequestModel,System.Threading.CancellationToken)">
             <param name='operations'>
             The operations group for this extension method.
             </param>
@@ -222,7 +222,7 @@
             </param>
             <param name='key'>
             </param>
-            <param name='payload'>
+            <param name='model'>
             </param>
             <param name='cancellationToken'>
             The cancellation token.
@@ -299,12 +299,12 @@
             The cancellation token.
             </param>
         </member>
-        <member name="M:Lykke.Service.ClientDictionaries.AutorestClient.IClientDictionariesAPI.ApiDictionaryByClientIdByKeyPostWithHttpMessagesAsync(System.String,System.String,Lykke.Service.ClientDictionaries.AutorestClient.Models.RecordPayloadModel,System.Collections.Generic.Dictionary{System.String,System.Collections.Generic.List{System.String}},System.Threading.CancellationToken)">
+        <member name="M:Lykke.Service.ClientDictionaries.AutorestClient.IClientDictionariesAPI.ApiDictionaryByClientIdByKeyPostWithHttpMessagesAsync(System.String,System.String,Lykke.Service.ClientDictionaries.AutorestClient.Models.SetRequestModel,System.Collections.Generic.Dictionary{System.String,System.Collections.Generic.List{System.String}},System.Threading.CancellationToken)">
             <param name='clientId'>
             </param>
             <param name='key'>
             </param>
-            <param name='payload'>
+            <param name='model'>
             </param>
             <param name='customHeaders'>
             The headers that will be added to request.
@@ -336,6 +336,35 @@
             The cancellation token.
             </param>
         </member>
+        <member name="M:Lykke.Service.ClientDictionaries.AutorestClient.Models.ErrorModel.#ctor">
+            <summary>
+            Initializes a new instance of the ErrorModel class.
+            </summary>
+        </member>
+        <member name="M:Lykke.Service.ClientDictionaries.AutorestClient.Models.ErrorModel.#ctor(Lykke.Service.ClientDictionaries.AutorestClient.Models.ErrorType,System.String)">
+            <summary>
+            Initializes a new instance of the ErrorModel class.
+            </summary>
+            <param name="type">Possible values include: 'NotFound',
+            'Validation'</param>
+        </member>
+        <member name="P:Lykke.Service.ClientDictionaries.AutorestClient.Models.ErrorModel.Message">
+            <summary>
+            </summary>
+        </member>
+        <member name="P:Lykke.Service.ClientDictionaries.AutorestClient.Models.ErrorModel.Type">
+            <summary>
+            Gets or sets possible values include: 'NotFound', 'Validation'
+            </summary>
+        </member>
+        <member name="M:Lykke.Service.ClientDictionaries.AutorestClient.Models.ErrorModel.Validate">
+            <summary>
+            Validate the object.
+            </summary>
+            <exception cref="T:Microsoft.Rest.ValidationException">
+            Thrown if validation fails
+            </exception>
+        </member>
         <member name="M:Lykke.Service.ClientDictionaries.AutorestClient.Models.ErrorResponse.#ctor">
             <summary>
             Initializes a new instance of the ErrorResponse class.
@@ -352,6 +381,11 @@
         </member>
         <member name="P:Lykke.Service.ClientDictionaries.AutorestClient.Models.ErrorResponse.ModelErrors">
             <summary>
+            </summary>
+        </member>
+        <member name="T:Lykke.Service.ClientDictionaries.AutorestClient.Models.ErrorType">
+            <summary>
+            Defines values for ErrorType.
             </summary>
         </member>
         <member name="M:Lykke.Service.ClientDictionaries.AutorestClient.Models.IsAliveResponse.#ctor">
@@ -421,6 +455,46 @@
             </summary>
         </member>
         <member name="P:Lykke.Service.ClientDictionaries.AutorestClient.Models.RecordPayloadModel.Payload">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:Lykke.Service.ClientDictionaries.AutorestClient.Models.ResponseModel.#ctor">
+            <summary>
+            Initializes a new instance of the ResponseModel class.
+            </summary>
+        </member>
+        <member name="M:Lykke.Service.ClientDictionaries.AutorestClient.Models.ResponseModel.#ctor(System.String,Lykke.Service.ClientDictionaries.AutorestClient.Models.ErrorModel)">
+            <summary>
+            Initializes a new instance of the ResponseModel class.
+            </summary>
+        </member>
+        <member name="P:Lykke.Service.ClientDictionaries.AutorestClient.Models.ResponseModel.Data">
+            <summary>
+            </summary>
+        </member>
+        <member name="P:Lykke.Service.ClientDictionaries.AutorestClient.Models.ResponseModel.Error">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:Lykke.Service.ClientDictionaries.AutorestClient.Models.ResponseModel.Validate">
+            <summary>
+            Validate the object.
+            </summary>
+            <exception cref="T:Microsoft.Rest.ValidationException">
+            Thrown if validation fails
+            </exception>
+        </member>
+        <member name="M:Lykke.Service.ClientDictionaries.AutorestClient.Models.SetRequestModel.#ctor">
+            <summary>
+            Initializes a new instance of the SetRequestModel class.
+            </summary>
+        </member>
+        <member name="M:Lykke.Service.ClientDictionaries.AutorestClient.Models.SetRequestModel.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the SetRequestModel class.
+            </summary>
+        </member>
+        <member name="P:Lykke.Service.ClientDictionaries.AutorestClient.Models.SetRequestModel.Data">
             <summary>
             </summary>
         </member>

@@ -22,7 +22,7 @@ namespace Lykke.Service.ClientDictionaries.AutorestClient
             /// </param>
             /// <param name='key'>
             /// </param>
-            public static object ApiDictionaryByClientIdByKeyGet(this IClientDictionariesAPI operations, string clientId, string key)
+            public static ResponseModel ApiDictionaryByClientIdByKeyGet(this IClientDictionariesAPI operations, string clientId, string key)
             {
                 return operations.ApiDictionaryByClientIdByKeyGetAsync(clientId, key).GetAwaiter().GetResult();
             }
@@ -37,7 +37,7 @@ namespace Lykke.Service.ClientDictionaries.AutorestClient
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<object> ApiDictionaryByClientIdByKeyGetAsync(this IClientDictionariesAPI operations, string clientId, string key, CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<ResponseModel> ApiDictionaryByClientIdByKeyGetAsync(this IClientDictionariesAPI operations, string clientId, string key, CancellationToken cancellationToken = default(CancellationToken))
             {
                 using (var _result = await operations.ApiDictionaryByClientIdByKeyGetWithHttpMessagesAsync(clientId, key, null, cancellationToken).ConfigureAwait(false))
                 {
@@ -52,11 +52,11 @@ namespace Lykke.Service.ClientDictionaries.AutorestClient
             /// </param>
             /// <param name='key'>
             /// </param>
-            /// <param name='payload'>
+            /// <param name='model'>
             /// </param>
-            public static ErrorResponse ApiDictionaryByClientIdByKeyPost(this IClientDictionariesAPI operations, string clientId, string key, RecordPayloadModel payload = default(RecordPayloadModel))
+            public static ResponseModel ApiDictionaryByClientIdByKeyPost(this IClientDictionariesAPI operations, string clientId, string key, SetRequestModel model = default(SetRequestModel))
             {
-                return operations.ApiDictionaryByClientIdByKeyPostAsync(clientId, key, payload).GetAwaiter().GetResult();
+                return operations.ApiDictionaryByClientIdByKeyPostAsync(clientId, key, model).GetAwaiter().GetResult();
             }
 
             /// <param name='operations'>
@@ -66,14 +66,14 @@ namespace Lykke.Service.ClientDictionaries.AutorestClient
             /// </param>
             /// <param name='key'>
             /// </param>
-            /// <param name='payload'>
+            /// <param name='model'>
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<ErrorResponse> ApiDictionaryByClientIdByKeyPostAsync(this IClientDictionariesAPI operations, string clientId, string key, RecordPayloadModel payload = default(RecordPayloadModel), CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<ResponseModel> ApiDictionaryByClientIdByKeyPostAsync(this IClientDictionariesAPI operations, string clientId, string key, SetRequestModel model = default(SetRequestModel), CancellationToken cancellationToken = default(CancellationToken))
             {
-                using (var _result = await operations.ApiDictionaryByClientIdByKeyPostWithHttpMessagesAsync(clientId, key, payload, null, cancellationToken).ConfigureAwait(false))
+                using (var _result = await operations.ApiDictionaryByClientIdByKeyPostWithHttpMessagesAsync(clientId, key, model, null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }
@@ -86,7 +86,7 @@ namespace Lykke.Service.ClientDictionaries.AutorestClient
             /// </param>
             /// <param name='key'>
             /// </param>
-            public static ErrorResponse ApiDictionaryByClientIdByKeyDelete(this IClientDictionariesAPI operations, string clientId, string key)
+            public static ResponseModel ApiDictionaryByClientIdByKeyDelete(this IClientDictionariesAPI operations, string clientId, string key)
             {
                 return operations.ApiDictionaryByClientIdByKeyDeleteAsync(clientId, key).GetAwaiter().GetResult();
             }
@@ -101,7 +101,7 @@ namespace Lykke.Service.ClientDictionaries.AutorestClient
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<ErrorResponse> ApiDictionaryByClientIdByKeyDeleteAsync(this IClientDictionariesAPI operations, string clientId, string key, CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<ResponseModel> ApiDictionaryByClientIdByKeyDeleteAsync(this IClientDictionariesAPI operations, string clientId, string key, CancellationToken cancellationToken = default(CancellationToken))
             {
                 using (var _result = await operations.ApiDictionaryByClientIdByKeyDeleteWithHttpMessagesAsync(clientId, key, null, cancellationToken).ConfigureAwait(false))
                 {

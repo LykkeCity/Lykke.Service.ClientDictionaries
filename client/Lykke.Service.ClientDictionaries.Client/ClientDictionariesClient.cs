@@ -4,7 +4,6 @@ using System.Threading.Tasks;
 using Common.Log;
 using Lykke.Service.ClientDictionaries.AutorestClient;
 using Lykke.Service.ClientDictionaries.AutorestClient.Models;
-using Lykke.Service.ClientDictionaries.Client.Models;
 using Microsoft.Rest;
 
 namespace Lykke.Service.ClientDictionaries.Client
@@ -28,48 +27,28 @@ namespace Lykke.Service.ClientDictionaries.Client
             _apiClient = null;
         }
         
-        private DictResponseModel PrepareResponse(object serviceResponse)
+        private ResponseModel PrepareResponse(object serviceResponse)
         {
-            var error = serviceResponse as ErrorResponse;
-            var result = serviceResponse as RecordPayloadModel;
-
-            if (error != null)
-            {
-                return new DictResponseModel
-                {
-                    Error = new ErrorModel
-                    {
-                        Message = error.ErrorMessage
-                    }
-                };
-            }
-
-            if (result != null)
-            {
-                return new DictResponseModel
-                {
-                    Value = result.Payload
-                };
-            }
-
-            return new DictResponseModel();
+            if(!(serviceResponse is ResponseModel responseModel))
+                throw new ArgumentException("Service response of unknown type");
+            return responseModel;
         }
 
-        public async Task<DictResponseModel> GetAsync(string clientId, string key)
+        public async Task<ResponseModel> GetAsync(string clientId, string key)
         {
             var response = await _apiClient.ApiDictionaryByClientIdByKeyGetWithHttpMessagesAsync(clientId, key);
 
             return PrepareResponse(response.Body);
         }
 
-        public async Task<DictResponseModel> SetAsync(string clientId, string key, string value)
+        public async Task<ResponseModel> SetAsync(string clientId, string key, string value)
         {
-            var response = await _apiClient.ApiDictionaryByClientIdByKeyPostWithHttpMessagesAsync(clientId, key, new RecordPayloadModel {Payload = value});
+            var response = await _apiClient.ApiDictionaryByClientIdByKeyPostWithHttpMessagesAsync(clientId, key, new SetRequestModel {Data = value});
 
             return PrepareResponse(response.Body);
         }
 
-        public async Task<DictResponseModel> DeleteAsync(string clientId, string key)
+        public async Task<ResponseModel> DeleteAsync(string clientId, string key)
         {
             var response = await _apiClient.ApiDictionaryByClientIdByKeyDeleteWithHttpMessagesAsync(clientId, key);
 

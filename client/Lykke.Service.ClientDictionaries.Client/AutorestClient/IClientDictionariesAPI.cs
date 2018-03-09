@@ -44,13 +44,13 @@ namespace Lykke.Service.ClientDictionaries.AutorestClient
         /// <param name='cancellationToken'>
         /// The cancellation token.
         /// </param>
-        Task<HttpOperationResponse<object>> ApiDictionaryByClientIdByKeyGetWithHttpMessagesAsync(string clientId, string key, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<ResponseModel>> ApiDictionaryByClientIdByKeyGetWithHttpMessagesAsync(string clientId, string key, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <param name='clientId'>
         /// </param>
         /// <param name='key'>
         /// </param>
-        /// <param name='payload'>
+        /// <param name='model'>
         /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
@@ -58,7 +58,7 @@ namespace Lykke.Service.ClientDictionaries.AutorestClient
         /// <param name='cancellationToken'>
         /// The cancellation token.
         /// </param>
-        Task<HttpOperationResponse<ErrorResponse>> ApiDictionaryByClientIdByKeyPostWithHttpMessagesAsync(string clientId, string key, RecordPayloadModel payload = default(RecordPayloadModel), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<ResponseModel>> ApiDictionaryByClientIdByKeyPostWithHttpMessagesAsync(string clientId, string key, SetRequestModel model = default(SetRequestModel), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <param name='clientId'>
         /// </param>
@@ -70,7 +70,7 @@ namespace Lykke.Service.ClientDictionaries.AutorestClient
         /// <param name='cancellationToken'>
         /// The cancellation token.
         /// </param>
-        Task<HttpOperationResponse<ErrorResponse>> ApiDictionaryByClientIdByKeyDeleteWithHttpMessagesAsync(string clientId, string key, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<ResponseModel>> ApiDictionaryByClientIdByKeyDeleteWithHttpMessagesAsync(string clientId, string key, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Checks service is alive

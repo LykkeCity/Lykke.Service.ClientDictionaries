@@ -22,69 +22,69 @@ namespace Lykke.Service.ClientDictionaries.Controllers
         }
         
         [HttpGet("{clientId}/{key}")]
-        [ProducesResponseType(typeof(RecordPayloadModel), (int) HttpStatusCode.OK)]
-        [ProducesResponseType(typeof(void), (int) HttpStatusCode.NotFound)]
-        [ProducesResponseType(typeof(ErrorResponse), (int) HttpStatusCode.BadRequest)]
+        [ProducesResponseType(typeof(ResponseModel), (int) HttpStatusCode.OK)]
+        [ProducesResponseType(typeof(ResponseModel), (int) HttpStatusCode.NotFound)]
+        [ProducesResponseType(typeof(ResponseModel), (int) HttpStatusCode.BadRequest)]
         public async Task<IActionResult> Get(string clientId, string key)
         {
             try
             {
                 if (!CommonValidators.IsValidClientId(clientId))
-                    return BadRequest(ErrorResponse.Create(InvalidClientIdMessage));
+                    return BadRequest(ResponseModel.CreateWithError(ErrorType.Validation, InvalidClientIdMessage));
                 
                 if (!CommonValidators.IsValidKey(key))
-                    return BadRequest(ErrorResponse.Create(InvalidKeyMessage));
+                    return BadRequest(ResponseModel.CreateWithError(ErrorType.Validation, InvalidKeyMessage));
                 
                 var value = await _clientDictionary.GetAsync(clientId, key);
                 
-                return Ok(new RecordPayloadModel {Payload = value});
+                return Ok(ResponseModel.CreateWithData(value));
             }
             catch (KeyNotFoundException)
             {
-                return NotFound();
+                return NotFound(ResponseModel.CreateWithError(ErrorType.NotFound, null));
             }
         }
         
         [HttpPost("{clientId}/{key}")]
-        [ProducesResponseType(typeof(void), (int) HttpStatusCode.OK)]
-        [ProducesResponseType(typeof(ErrorResponse), (int) HttpStatusCode.BadRequest)]
-        public async Task<IActionResult> Post(string clientId, string key, [FromBody]RecordPayloadModel payload)
+        [ProducesResponseType(typeof(ResponseModel), (int) HttpStatusCode.OK)]
+        [ProducesResponseType(typeof(ResponseModel), (int) HttpStatusCode.BadRequest)]
+        public async Task<IActionResult> Post(string clientId, string key, [FromBody]SetRequestModel model)
         {
             if (!CommonValidators.IsValidClientId(clientId))
-                return BadRequest(ErrorResponse.Create(InvalidClientIdMessage));
+                return BadRequest(ResponseModel.CreateWithError(ErrorType.Validation, InvalidClientIdMessage));
                 
             if (!CommonValidators.IsValidKey(key))
-                return BadRequest(ErrorResponse.Create(InvalidKeyMessage));
+                return BadRequest(ResponseModel.CreateWithError(ErrorType.Validation, InvalidKeyMessage));
                 
-            if (!CommonValidators.IsValidPayload(payload.Payload))
-                return BadRequest(ErrorResponse.Create(InvalidPayloadMessage));
+            if (!CommonValidators.IsValidPayload(model.Data))
+                return BadRequest(ResponseModel.CreateWithError(ErrorType.Validation, InvalidPayloadMessage));
             
-            await _clientDictionary.SetAsync(clientId, key, payload.Payload);
+            await _clientDictionary.SetAsync(clientId, key, model.Data);
 
-            return Ok();
+            return Ok(ResponseModel.CreateWithData(null));
         }
         
         [HttpDelete("{clientId}/{key}")]
-        [ProducesResponseType(typeof(void), (int) HttpStatusCode.OK)]
-        [ProducesResponseType(typeof(void), (int) HttpStatusCode.NotFound)]
-        [ProducesResponseType(typeof(ErrorResponse), (int) HttpStatusCode.BadRequest)]
+        [ProducesResponseType(typeof(ResponseModel), (int) HttpStatusCode.OK)]
+        [ProducesResponseType(typeof(ResponseModel), (int) HttpStatusCode.NotFound)]
+        [ProducesResponseType(typeof(ResponseModel), (int) HttpStatusCode.BadRequest)]
         public async Task<IActionResult> Delete(string clientId, string key)
         {
             try
             {
                 if (!CommonValidators.IsValidClientId(clientId))
-                    return BadRequest(ErrorResponse.Create(InvalidClientIdMessage));
+                    return BadRequest(ResponseModel.CreateWithError(ErrorType.Validation, InvalidClientIdMessage));
                 
                 if (!CommonValidators.IsValidKey(key))
-                    return BadRequest(ErrorResponse.Create(InvalidKeyMessage));
+                    return BadRequest(ResponseModel.CreateWithError(ErrorType.Validation, InvalidKeyMessage));
                 
                 await _clientDictionary.DeleteAsync(clientId, key);
                 
-                return Ok();
+                return Ok(ResponseModel.CreateWithData(null));
             }
             catch (KeyNotFoundException)
             {
-                return NotFound();
+                return NotFound(ResponseModel.CreateWithError(ErrorType.NotFound, null));
             }
         }
     }
