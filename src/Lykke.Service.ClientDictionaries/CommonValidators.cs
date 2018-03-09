@@ -14,7 +14,7 @@ namespace Lykke.Service.ClientDictionaries
 
         public static bool IsValidPayload(string payload)
         {
-            return !string.IsNullOrWhiteSpace(payload);
+            return payload != null;
         }
     }
 }
