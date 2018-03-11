@@ -1,0 +1,14 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.0</TargetFramework>
+    <AssemblyName>Lykke.Service.ClientDictionaries.Services</AssemblyName>
+    <RootNamespace>Lykke.Service.ClientDictionaries.Services</RootNamespace>
+    <Version>1.0.0</Version>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Lykke.Common" Version="4.4.2" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Lykke.Service.ClientDictionaries.Core\Lykke.Service.ClientDictionaries.Core.csproj" />
+  </ItemGroup>
+</Project>
