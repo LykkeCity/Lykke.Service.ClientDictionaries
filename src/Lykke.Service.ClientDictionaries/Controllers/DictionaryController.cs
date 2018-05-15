@@ -116,7 +116,7 @@ namespace Lykke.Service.ClientDictionaries.Controllers
             {
                 await _clientDictionaryTable.DeleteAsync(clientId, key);
 
-                deletedFromTable = false;
+                deletedFromTable = true;
             }
             catch (KeyNotFoundException)
             {
