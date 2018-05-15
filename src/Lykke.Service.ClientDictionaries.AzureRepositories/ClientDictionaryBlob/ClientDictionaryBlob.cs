@@ -50,8 +50,8 @@ namespace Lykke.Service.ClientDictionaries.AzureRepositories.ClientDictionaryBlo
                     return await _storage.GetAsTextAsync(
                         BlobContainer,
                         key);
-                
-                throw new KeyNotFoundException();
+                else
+                    throw new KeyNotFoundException();
             }
             finally
             {
@@ -77,8 +77,8 @@ namespace Lykke.Service.ClientDictionaries.AzureRepositories.ClientDictionaryBlo
                     await _storage.DelBlobAsync(
                         BlobContainer,
                         key);
-                
-                throw new KeyNotFoundException();
+                else
+                    throw new KeyNotFoundException();
             }
             finally
             {
