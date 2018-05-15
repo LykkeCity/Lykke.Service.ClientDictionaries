@@ -1,9 +1,12 @@
 using Autofac;
 using Autofac.Extensions.DependencyInjection;
+using AzureStorage.Blob;
 using AzureStorage.Tables;
 using AzureStorage.Tables.Templates.Index;
 using Common.Log;
 using Lykke.Service.ClientDictionaries.AzureRepositories.ClientDictionaries;
+using Lykke.Service.ClientDictionaries.AzureRepositories.ClientDictionaryBlob;
+using Lykke.Service.ClientDictionaries.AzureRepositories.ClientKeysToBlobKeys;
 using Lykke.Service.ClientDictionaries.Core.Services;
 using Lykke.Service.ClientDictionaries.Settings.ServiceSettings;
 using Lykke.Service.ClientDictionaries.Services;
@@ -48,13 +51,31 @@ namespace Lykke.Service.ClientDictionaries.Modules
 
             builder.RegisterType<ShutdownManager>()
                 .As<IShutdownManager>();
-
-            builder.RegisterInstance(new ClientDictionaryRepository(
+            
+            
+            builder.Register(ctx => new ClientDictionaryRepository(
                     AzureTableStorage<ClientDictionaryEntity>.Create(
                         _settings.ConnectionString(x => x.Db.DataConnString),
                         ClientDictionaryRepository.TableName,
                         _log)))
-                .As<IClientDictionary>()
+                //.As<IClientDictionary>()
+                .SingleInstance();
+             
+
+            builder.RegisterType<InputValidator>()
+                .As<IInputValidator>()
+                .SingleInstance()
+                .WithParameter(TypedParameter.From(_settings.CurrentValue.MaxPayloadSizeBytes));
+
+            builder.Register(ctx => new ClientDictionaryBlob(
+                    AzureBlobStorage.Create(
+                        _settings.ConnectionString(x => x.Db.DataConnString)),
+                    new ClientKeysToBlobKeys(
+                        AzureTableStorage<ClientKeysToBlobKeyEntity>.Create(
+                            _settings.ConnectionString(x => x.Db.DataConnString),
+                            ClientKeysToBlobKeys.TableName,
+                            _log))))
+                //.As<IClientDictionary>()
                 .SingleInstance();
 
             builder.Populate(_services);
