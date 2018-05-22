@@ -1,6 +1,5 @@
 using System.Net;
 using System.Threading.Tasks;
-using Lykke.Service.ClientDictionaries.AzureRepositories.ClientDictionaries;
 using Lykke.Service.ClientDictionaries.AzureRepositories.ClientDictionaryBlob;
 using Lykke.Service.ClientDictionaries.Core.Exceptions;
 using Lykke.Service.ClientDictionaries.Core.Services;
@@ -17,17 +16,14 @@ namespace Lykke.Service.ClientDictionaries.Controllers
         private const string InvalidPayloadMessage = "Invalid value provided";
         private const string TooBigPayloadMessage = "Too big value provided";
 
-        private readonly ClientDictionaryRepository _clientDictionaryTable;
-        private readonly ClientDictionaryBlob _clientDictionaryBlob;
+        private readonly IClientDictionary _clientDictionary;
         private readonly IInputValidator _inputValidator;
 
         public DictionaryController(
-            ClientDictionaryRepository clientDictionaryTable,
-            ClientDictionaryBlob clientDictionaryBlob,
+            IClientDictionary clientDictionary,
             IInputValidator inputValidator)
         {
-            _clientDictionaryTable = clientDictionaryTable;
-            _clientDictionaryBlob = clientDictionaryBlob;
+            _clientDictionary = clientDictionary;
             _inputValidator = inputValidator;
         }
 
@@ -45,22 +41,13 @@ namespace Lykke.Service.ClientDictionaries.Controllers
 
             try
             {
-                var value = await _clientDictionaryBlob.GetAsync(clientId, key);
+                var value = await _clientDictionary.GetAsync(clientId, key);
 
                 return Ok(ResponseModel.CreateWithData(value));
             }
             catch (KeyNotFoundException)
             {
-                try
-                {
-                    var value = await _clientDictionaryTable.GetAsync(clientId, key);
-
-                    return Ok(ResponseModel.CreateWithData(value));
-                }
-                catch (KeyNotFoundException)
-                {
-                    return NotFound(ResponseModel.CreateWithError(ErrorType.NotFound, null));
-                }
+                return NotFound(ResponseModel.CreateWithError(ErrorType.NotFound, null));
             }
         }
 
@@ -81,7 +68,7 @@ namespace Lykke.Service.ClientDictionaries.Controllers
             if (!_inputValidator.IsValidPayloadSize(model.Data))
                 return BadRequest(ResponseModel.CreateWithError(ErrorType.Validation, TooBigPayloadMessage));
 
-            await _clientDictionaryBlob.SetAsync(clientId, key, model.Data);
+            await _clientDictionary.SetAsync(clientId, key, model.Data);
 
             return Ok(ResponseModel.CreateWithData(null));
         }
@@ -97,34 +84,15 @@ namespace Lykke.Service.ClientDictionaries.Controllers
 
             if (!_inputValidator.IsValidKey(key))
                 return BadRequest(ResponseModel.CreateWithError(ErrorType.Validation, InvalidKeyMessage));
-
-            bool deletedFromBlob;
-            bool deletedFromTable;
             
             try
             {
-                await _clientDictionaryBlob.DeleteAsync(clientId, key);
-
-                deletedFromBlob = true;
+                await _clientDictionary.DeleteAsync(clientId, key);
             }
             catch (KeyNotFoundException)
             {
-                deletedFromBlob = false;
-            }
-            
-            try
-            {
-                await _clientDictionaryTable.DeleteAsync(clientId, key);
-
-                deletedFromTable = true;
-            }
-            catch (KeyNotFoundException)
-            {
-                deletedFromTable = false;
-            }
-            
-            if(!deletedFromBlob && !deletedFromTable)
                 return NotFound(ResponseModel.CreateWithError(ErrorType.NotFound, null));
+            }
             
             return Ok(ResponseModel.CreateWithData(null));
         }
